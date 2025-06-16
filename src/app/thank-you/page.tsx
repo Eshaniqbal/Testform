@@ -1,15 +1,17 @@
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
-import { CheckCircle2, Home } from 'lucide-react';
+import { CheckCircle2, Home, Trophy } from 'lucide-react';
 
 export default function ThankYouPage() {
   return (
     <div className="min-h-screen bg-background flex flex-col items-center justify-center text-center p-4 selection:bg-primary/40 selection:text-white">
-      <CheckCircle2 className="h-20 w-20 text-green-400 mb-6 shadow-glow-primary animate-pulse" />
-      <h1 className="text-4xl sm:text-5xl font-bold mb-4 text-glow-primary">Application Received!</h1>
-      <p className="text-lg sm:text-xl text-neutral-300 mb-8 max-w-md">
-        Thank you for applying to our wellness project! We've received your details and will get back to you shortly with more information.
-      </p>
+      <Trophy className="h-20 w-20 text-primary mb-6 shadow-glow-primary" />
+      <CheckCircle2 className="h-16 w-16 text-green-400 mb-6 shadow-glow-primary animate-pulse" />
+      <h1 className="text-4xl sm:text-5xl font-bold mb-4 text-glow-primary">Registration Successful!</h1>
+      <div className="space-y-4 text-lg sm:text-xl text-neutral-300 mb-8 max-w-md">
+        <p>Thank you for registering for the District Baramulla Taekwondo Championship 2025!</p>
+        <p>We have received your registration details and will contact you shortly with more information about the championship schedule and requirements.</p>
+      </div>
       <Link href="/">
         <Button
           size="lg"
@@ -25,7 +27,7 @@ export default function ThankYouPage() {
         </Button>
       </Link>
       <footer className="absolute bottom-8 text-center text-neutral-500 text-sm">
-        <p>&copy; {new Date().getFullYear()} Wellness Project. We appreciate your interest.</p>
+        <p>&copy; {new Date().getFullYear()} District Baramulla Taekwondo. All rights reserved.</p>
       </footer>
     </div>
   );
