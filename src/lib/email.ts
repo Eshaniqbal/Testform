@@ -2,7 +2,9 @@ import nodemailer from 'nodemailer';
 
 // Create a transporter using environment variables
 const transporter = nodemailer.createTransport({
-  service: 'gmail',
+  host: 'smtp.gmail.com',
+  port: 587,
+  secure: false, // true for 465, false for other ports
   auth: {
     user: process.env.EMAIL_USER,
     pass: process.env.EMAIL_PASS,
@@ -86,7 +88,7 @@ export async function sendEmail({
   try {
     const mailOptions = {
       from: {
-        name: 'Wellness', // Replace with your company name
+        name: 'District Baramulla Taekwondo',
         address: process.env.EMAIL_USER || '',
       },
       to,
@@ -98,10 +100,10 @@ export async function sendEmail({
         'X-Priority': '1',
         'X-MSMail-Priority': 'High',
         'Importance': 'high',
-        'X-Mailer': 'Your Company Mailer',
+        'X-Mailer': 'District Baramulla Taekwondo Mailer',
       },
       // Add message ID for better tracking
-      messageId: `<${Date.now()}.${Math.random().toString(36).substring(2)}@${process.env.EMAIL_DOMAIN || 'yourdomain.com'}>`,
+      messageId: `<${Date.now()}.${Math.random().toString(36).substring(2)}@${process.env.EMAIL_DOMAIN || 'baramullataekwondo.com'}>`,
     };
 
     const info = await transporter.sendMail(mailOptions);
